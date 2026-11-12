@@ -1,72 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UFT-8">
-    <meta http-equiv="X-Ua-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DinoMaster | Registro</title>
+  <style>
+    body{font-family:system-ui,sans-serif;background:#eaf4ec;color:#1e3729;margin:0;padding:24px}
+    main{max-width:550px;margin:auto;background:white;padding:28px;border-radius:14px;box-shadow:0 8px 25px #16371b22}
+    h1{color:#286b45}form{display:grid;gap:14px}label{display:grid;gap:6px;font-weight:600}
+    input,select,button{padding:10px;border:1px solid #a5c2ae;border-radius:6px;font:inherit}
+    fieldset{border:1px solid #a5c2ae;border-radius:8px}fieldset label{display:inline-flex;align-items:center;margin-right:15px}
+    button{background:#286b45;color:white;cursor:pointer}#resultado{font-weight:700}#resultado.error{color:#a12828}#resultado.ok{color:#24683b}
+  </style>
 </head>
 <body>
-
-    
-      <!-- <section class="cabecera">
-        <article class="logo"> <img src="/media/fotologo.webp" alt="fotologo"></article>
-         <br> -->
-        <p><h1 class="nombreweb">DinoMaster</h1></p>
-   
-        <main class="registro">
-        <form id="formulario" method="get">
-            <br>
-            <h2><u>Inscribete</u></h2>
-            <br>
-            <br>
-                <label for="nombre">Nombre:</label>
-                <input type="text" placeholder="Escribe tu nombre" maxlength="20" name="nombre" id="nombre">
-            <br>
-            <br>
-                <label for="apellidos">Apellidos:</label>
-                <input type="text" placeholder="Escribe tus apellidos" maxlength="40" name="apellidos" id="apellidos">
-            <br>
-            <br>
-                <label for="edad">Edad</label>
-                <input type="number" placeholder="Escribe tu edad" maxlength="3" name="edad" id="edad">   
-             <br>
-             <br>  
-             Seleccione su sexo:<select name="sexo" id="sexo">
-            <option>Hombre</option>
-            <option>Mujer</option>
-            <option>No Binario</option>
-            <option>Otro</option>
+  <main>
+    <h1>🦖 DinoMaster</h1>
+    <p>Formulario de registro de ejemplo. No se envían datos a ningún servidor.</p>
+    <form id="formulario" novalidate>
+      <label for="nombre">Nombre <input id="nombre" name="nombre" maxlength="20" required></label>
+      <label for="apellidos">Apellidos <input id="apellidos" name="apellidos" maxlength="40" required></label>
+      <label for="edad">Edad <input id="edad" name="edad" type="number" min="1" max="120" required></label>
+      <label for="sexo">Género
+        <select id="sexo" name="sexo">
+          <option value="">Prefiero no indicar</option><option>Hombre</option><option>Mujer</option><option>No binario</option><option>Otro</option>
         </select>
-            <br>
-            <br>
-                ¿Te gustan los dinosaurios?<input type="checkbox"  name="tegustanlosd" class="tegustanlosd">Sí
-                <input type="checkbox"  name="tegustanlosd" class="tegustanlosd">Un poco
-                <input type="checkbox"  name="tegustanlosd?" class="tegustanlosd">No
-            <br><br><br>
-            Elige tu equipo dinosaurio<select name="dino" id="dino">
-                <option>Carnivoro</option>
-                <option>Herbivoro</option>
-                <option>Volador</option>
-                <option>Acuatico</option>
-                </select>
-            <br>
-            <br>
-
-                <h2><u>Registrate:</u></h2>
-            <br>
-                
-                Escribe tu e-mail<input type="email" name="email" id="email">
-            <br><br>
-                Pon una contraseña<input type="password" name="contraseña" id="password">
-            <br><br>
-                Confirma la contraseña <input type="password" name="confirmarcontraseña" id="password2">
-            <br><br>
-                <button id="submit">Enviar</button>
-                <br><br>
-           
-            </form>
-        </main>
-        <script src="../script.js"></script>
+      </label>
+      <fieldset><legend>¿Te gustan los dinosaurios?</legend>
+        <label><input type="radio" name="gustan" value="Sí" checked> Sí</label>
+        <label><input type="radio" name="gustan" value="Un poco"> Un poco</label>
+        <label><input type="radio" name="gustan" value="No"> No</label>
+      </fieldset>
+      <label for="dino">Tu equipo
+        <select id="dino" name="dino"><option>Carnívoro</option><option>Herbívoro</option><option>Volador</option><option>Acuático</option></select>
+      </label>
+      <label for="email">Correo electrónico <input id="email" name="email" type="email" autocomplete="email" required></label>
+      <label for="password">Contraseña <input id="password" name="password" type="password" minlength="8" autocomplete="new-password" required></label>
+      <label for="password2">Confirmar contraseña <input id="password2" name="password2" type="password" minlength="8" autocomplete="new-password" required></label>
+      <button type="submit">Validar registro</button>
+      <p id="resultado" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+  <script src="./script.js"></script>
 </body>
+</html>
